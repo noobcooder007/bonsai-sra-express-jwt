@@ -1,6 +1,8 @@
-const bodyParser = require("body-parser");
-const express = require("express");
+const bodyParser = require('body-parser');
+const express = require('express');
 require('dotenv').config();
+
+require('./database/config').dbConnection();
 
 const app = express();
 
