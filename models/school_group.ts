@@ -1,14 +1,15 @@
 import { DataTypes, Model } from 'sequelize';
+import { sequelize } from '../../database/config';
 
-class Subject extends Model { }
+class SchoolGroup extends Model { }
 
-Subject.init({
-    subjectId: {
+SchoolGroup.init({
+    schoolGroupId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    topic: {
+    name: {
         type: DataTypes.STRING,
         allowNull: false
     },
@@ -21,6 +22,6 @@ Subject.init({
         type: DataTypes.DATE,
         allowNull: false
     }
-}, { sequelize, modelName: 'Subject' });
+}, { sequelize, modelName: 'SchoolGroup' });
 
-console.log(Subject === sequelize.models.Subject);
+console.log(SchoolGroup === sequelize.models.SchoolGroup);

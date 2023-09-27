@@ -1,24 +1,24 @@
 import { DataTypes, Model } from 'sequelize';
+import { sequelize } from '../database/config';
 
-class SchoolCycle extends Model { }
+export class User extends Model { }
 
-SchoolCycle.init({
-    schoolcycleId: {
+User.init({
+    userId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    description: {
+    name:{
         type: DataTypes.STRING,
-        unique: true,
+        allowNull: true
+    },
+    email: {
+        type: DataTypes.STRING,
         allowNull: false
     },
-    startDate: {
-        type: DataTypes.DATE,
-        allowNull: false
-    },
-    endDate: {
-        type: DataTypes.DATE,
+    password: {
+        type: DataTypes.STRING,
         allowNull: false
     },
     isActive: {
@@ -30,6 +30,4 @@ SchoolCycle.init({
         type: DataTypes.DATE,
         allowNull: false
     }
-}, { sequelize, modelName: 'Schoolcycle' });
-
-console.log(SchoolCycle === sequelize.models.SchoolCycle);
+}, { sequelize, modelName: 'Users', updatedAt: false });

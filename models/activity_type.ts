@@ -1,15 +1,21 @@
 import { DataTypes, Model } from 'sequelize';
+import { sequelize } from '../../database/config';
 
-class SchoolDegree extends Model { }
+class ActivityType extends Model { }
 
-SchoolDegree.init({
-    schoolDegreeId: {
+ActivityType.init({
+    activityTypeId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    name: {
+    description: {
         type: DataTypes.STRING,
+        allowNull: false
+    },
+    type: {
+        type: DataTypes.ENUM,
+        values: ['tarea', 'actividad'],
         allowNull: false
     },
     isActive: {
@@ -21,6 +27,6 @@ SchoolDegree.init({
         type: DataTypes.DATE,
         allowNull: false
     }
-}, { sequelize, modelName: 'SchoolDegree' });
+}, { sequelize, modelName: 'ActivityType' });
 
-console.log(SchoolDegree === sequelize.models.SchoolDegree);
+console.log(ActivityType === sequelize.models.ActivityType);

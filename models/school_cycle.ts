@@ -1,20 +1,25 @@
 import { DataTypes, Model } from 'sequelize';
+import { sequelize } from '../../database/config';
 
-class ActivityType extends Model { }
+class SchoolCycle extends Model { }
 
-ActivityType.init({
-    activityTypeId: {
+SchoolCycle.init({
+    schoolcycleId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
     description: {
         type: DataTypes.STRING,
+        unique: true,
         allowNull: false
     },
-    type: {
-        type: DataTypes.ENUM,
-        values: ['tarea', 'actividad'],
+    startDate: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+    endDate: {
+        type: DataTypes.DATE,
         allowNull: false
     },
     isActive: {
@@ -26,6 +31,6 @@ ActivityType.init({
         type: DataTypes.DATE,
         allowNull: false
     }
-}, { sequelize, modelName: 'ActivityType' });
+}, { sequelize, modelName: 'Schoolcycle' });
 
-console.log(ActivityType === sequelize.models.ActivityType);
+console.log(SchoolCycle === sequelize.models.SchoolCycle);

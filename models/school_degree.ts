@@ -1,9 +1,10 @@
 import { DataTypes, Model } from 'sequelize';
+import { sequelize } from '../../database/config';
 
-class SchoolGroup extends Model { }
+class SchoolDegree extends Model { }
 
-SchoolGroup.init({
-    schoolGroupId: {
+SchoolDegree.init({
+    schoolDegreeId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
@@ -21,6 +22,6 @@ SchoolGroup.init({
         type: DataTypes.DATE,
         allowNull: false
     }
-}, { sequelize, modelName: 'SchoolGroup' });
+}, { sequelize, modelName: 'SchoolDegree' });
 
-console.log(SchoolGroup === sequelize.models.SchoolGroup);
+console.log(SchoolDegree === sequelize.models.SchoolDegree);
